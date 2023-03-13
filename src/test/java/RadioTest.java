@@ -16,7 +16,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetMaxRadioStation () {
+    public void shouldSetRadioStationAboveMax () {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(12);
@@ -85,5 +85,89 @@ public class RadioTest {
         int actual = rad.prevRadioStation();
 
         Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void shouldSetVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(55);
+
+        int expected = 55;
+        int actual = rad.getVolumeSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetVolumeSoundAboveMax () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(120);
+
+        int expected = 0;
+        int actual = rad.getVolumeSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNegativeVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(-50);
+
+        int expected = 0;
+        int actual = rad.getVolumeSound();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetIncreaseVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(55);
+
+        int expected = 56;
+        int actual = rad.increaseVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetMaxVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(100);
+
+        int expected = 100;
+        int actual = rad.increaseVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetReduceVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(55);
+
+        int expected = 54;
+        int actual = rad.reduceVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetMinVolumeSound () {
+        Radio rad = new Radio();
+
+        rad.setVolumeSound(-1);
+
+        int expected = 0;
+        int actual = rad.reduceVolume();
+
+        Assertions.assertEquals(expected, actual);
     }
 }
