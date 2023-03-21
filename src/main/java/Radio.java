@@ -7,7 +7,10 @@ public class Radio {
     private int maxVolume = 100;
     private int currentVolume;
 
-    public Radio (int quantityRadioStation, int minVolume, int maxVolume) {
+    public Radio () {
+    }
+
+    public Radio (int quantityRadioStation) {
     }
 
     public int getCurrentRadioStation() {
