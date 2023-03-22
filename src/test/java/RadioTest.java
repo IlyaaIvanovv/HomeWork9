@@ -2,7 +2,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    Radio rad = new Radio(10);
+    Radio rad = new Radio(0, 9);
+    Radio rad1 = new Radio(0,19);
+
+    @Test
+    public void shouldSet15RadioStation () {
+        rad1.setCurrentRadioStation(15);
+        Assertions.assertEquals(15,rad1.getCurrentRadioStation());
+    }
 
     @Test
     public void shouldSetRadioStation () {
