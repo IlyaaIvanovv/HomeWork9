@@ -8,6 +8,8 @@ public class Radio {
     private int currentVolume;
 
     public Radio () {
+        minRadioStation = 0;
+        maxRadioStation = 9;
     }
 
     public Radio (int quantityRadioStation) {
